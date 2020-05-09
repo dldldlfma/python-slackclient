@@ -1,8 +1,8 @@
 # Python slackclient
 
-The Python slackclient is a developer kit for interfacing with the Slack Web API and Real Time Messaging (RTM) API on Python 3.6 and above.
+Python slackclient는 Slack Web API와 Real Time Messaging(RTM) API의 interface를 제공하는 개발자 도구입니다. python 3.6 version 이상에서 동작합니다.
 
-**Comprehensive documentation on using the Slack Python can be found at [https://slack.dev/python-slackclient/](https://slack.dev/python-slackclient/)**
+**Slack Python에 대한 설명문서는 오른쪽 주소에서 확인하실 수 있습니다. [https://slack.dev/python-slackclient/](https://slack.dev/python-slackclient/)**
 
 [![pypi package][pypi-image]][pypi-url]
 [![Build Status][travis-image]][travis-url]
@@ -11,38 +11,38 @@ The Python slackclient is a developer kit for interfacing with the Slack Web API
 [![codecov][codecov-image]][codecov-url]
 [![contact][contact-image]][contact-url]
 
-Whether you're building a custom app for your team, or integrating a third party service into your Slack workflows, Slack Developer Kit for Python allows you to leverage the flexibility of Python to get your project up and running as quickly as possible.
+여러분이 당신의 팀을 위한 custom app을 만들거나 다른 third party service를 당신의 Slack workflows에 통합하려고 하면, Python 기반의 Slack Developer Kit은 python의 유연성을 활용해서 당신의 프로젝트가 가능한 빠르게 진행될수 있도록 도와줄겁니다!!
 
-The **Python slackclient** allows interaction with:
+**Python slackclient**는 다음 것들과 상호작용 할 수 있게 해줍니다.
 
-- The Slack web api methods available at our [Api Docs site][api-methods]
-- Interaction with our [RTM API][rtm-docs]
+- Slack web api의 사용 [API Docs site][api-methods]
+- 우리의 RTM과의 상호작용[RTM API][rtm-docs]
 
-If you want to use our [Events API][events-docs], please check the [Slack Events API adapter for Python][python-slack-events-api].
+만약에 여러분이 [Event API][events-docs]를 사용하길 원하신다면, [Slack Events API adapter for Python][python-slack-events-api]를 확인해보세요.
 
-Details on the Tokens and Authentication can be found in our [Auth Guide](https://slack.dev/python-slackclient/auth.html).
+Tokens과 Authentication(인증)에 관한 세부사항은 [Auth Guide](https://slack.dev/python-slackclient/auth.html) 에서 찾을 수 있습니다.
 
 ## Table of contents
 
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Getting started tutorial](#getting-started-tutorial)
-* [Basic Usage of the Web Client](#basic-usage-of-the-web-client)
-    * [Sending a message to Slack](#sending-a-message-to-slack)
-    * [Uploading files to Slack](#uploading-files-to-slack)
-* [Basic Usage of the RTM Client](#basic-usage-of-the-rtm-client)
+* [준비사항](#준비사항)
+* [설치](#installation)
+* [tutorial 시작하기](#tutorial-시작하기)
+* [Web Client 사용 기초](#Web-Client-사용-기초)
+    * [Slack에 메세지 보내기](#Slack에-메세지-보내기)
+    * [Slack에 file 업로드하기](#Slack에-file-업로드하기)
+* [RTM Client 사용 기초](#basic-usage-of-the-rtm-client)
 * [Async Usage](#async-usage)
     * [Slackclient as a script](#slackclient-as-a-script)
     * [Slackclient in a framework](#slackclient-in-a-framework)
-* [Advanced Options](#advanced-options)
+* [고급 옵션](#advanced-options)
 * [Migrating from v1.x](#migrating-from-v1)
-* [Support](#support)
+* [지원](#support)
 
-### Requirements
+### 준비사항
 
 ---
 
-This library requires Python 3.6 and above. If you require Python 2, please use our [SlackClient - v1.x][slackclientv1]. If you're unsure how to check what version of Python you're on, you can check it using the following:
+이 library는 Python 3.6 이상의 버전이 필요합니다. 만약에 여러분이 Python 2를 사용중이라면, [SlackClient - v1.x][slackclientv1]을 사용해주세요. 만약 Python Version 확인법을 모르시면 아래 방법을 통해서 확인 가능합니다!
 
 > **Note:** You may need to use `python3` before your commands to ensure you use the correct Python path. e.g. `python3 --version`
 
@@ -54,29 +54,30 @@ python --version
 python3 --version
 ```
 
-### Installation
+### 설치
 
-We recommend using [PyPI][pypi] to install the Slack Developer Kit for Python.
+우리는 [PyPI][pypi]를 사용해서 Slack Developer Kit을 설치하는걸 추천드립니다.
 
 ```bash
 $ pip3 install slackclient
 ```
 
-### Getting started tutorial
+### tutorial 시작하기
 
 ---
 
-We've created this [tutorial](/tutorial) to build a basic Slack app in less than 10 minutes. It requires some general programming knowledge, and Python basics. It focuses on the interacting with Slack's Web and RTM API. Use it to give you an idea of how to use this SDK.
+우리는 이 [tutorial[(/tutorial)을 10분보다 짧은 시간안에 기본적인 Slack app을 만들어 볼수 있도록 만들었습니다. 이걸 진행하는데 기본적인 프로그래밍 지식이 필요하고, 물론 Python에 대한 기본지식도 필요합니다. 이 tutorial은 Slack의 Web과 RTM API와 연결하는데 집중되어 있습니다. 이 tutorial을 통해서 어떻게 SDK를 활용해야 하는지 알아보세요!
+
 
 **[Read the tutorial to get started!](/tutorial)**
 
-### Basic Usage of the Web Client
+### Web Client 사용 기초
 
 ---
 
 Slack provide a Web API that gives you the ability to build applications that interact with Slack in a variety of ways. This Development Kit is a module based wrapper that makes interaction with that API easier. We have a basic example here with some of the more common uses but a full list of the available methods are available [here][api-methods]. More detailed examples can be found in our [Basic Usage](https://slack.dev/python-slackclient/basic_usage.html) guide
 
-#### Sending a message to Slack
+#### Slack에 메세지 보내기
 
 One of the most common use-cases is sending a message to Slack. If you want to send a message as your app, or as a user, this method can do both. In our examples, we specify the channel name, however it is recommended to use the `channel_id` where possible.
 
@@ -101,7 +102,7 @@ except SlackApiError as e:
 
 Here we also ensure that the response back from Slack is a successful one and that the message is the one we sent by using the `assert` statement.
 
-#### Uploading files to Slack
+#### Slack에 file 업로드하기
 
 We've changed the process for uploading files to Slack to be much easier and straight forward. You can now just include a path to the file directly in the API call and upload it that way. You can find the details on this api call [here][files.upload]
 
